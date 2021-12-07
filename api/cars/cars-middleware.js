@@ -47,7 +47,16 @@ const checkVinNumberValid = (req, res, next) => {
 }
 
 const checkVinNumberUnique = (req, res, next) => {
-  // DO YOUR MAGIC
+  Car.getAll()
+    .then(rows => {
+      const isTaken = rows.find(car => car['vin'] === req.body.vin)
+      if (isTaken) {
+        next({ error: 400, message: `vin ${req.body.vin} already exists`})
+      } else {
+        next()
+      }
+    })
+    .catch(next)
 }
 
 module.exports = {
