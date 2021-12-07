@@ -18,7 +18,19 @@ const checkCarId = (req, res, next) => {
 }
 
 const checkCarPayload = (req, res, next) => {
-  // DO YOUR MAGIC
+  const { vin, make, model, mileage } = req.body
+
+  if (vin === undefined ) {
+    next({ error: 400, message: `vin is missing`})
+  } else if (make === undefined ) {
+    next({ error: 400, message: `make is missing`})
+  } else if (model === undefined ) {
+    next({ error: 400, message: `model is missing`})
+  } else if (mileage === undefined ) {
+    next({ error: 400, message: `mileage is missing`})
+  } else {
+    next()
+  }
 }
 
 const checkVinNumberValid = (req, res, next) => {
