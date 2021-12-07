@@ -16,7 +16,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
     Car.getAll()
         .then(cars => {
-                res.json(cars)
+            res.json(cars)
         })
         .catch(next)
 })
