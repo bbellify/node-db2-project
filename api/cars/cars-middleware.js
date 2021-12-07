@@ -16,7 +16,6 @@ const checkCarId = (req, res, next) => {
       }
     })
     .catch(next)
-
 }
 
 const checkCarPayload = (req, res, next) => {

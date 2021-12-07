@@ -1,6 +1,5 @@
 // DO YOUR MAGIC
 const express = require('express');
-const knex = require('knex');
 
 const Car = require('./cars-model')
 
@@ -17,11 +16,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
     Car.getAll()
         .then(cars => {
-            if (!cars) {
-                next({ status: 404, message: 'no cars found'})
-            } else {
                 res.json(cars)
-            }
         })
         .catch(next)
 })
