@@ -1,5 +1,7 @@
-const checkCarId = (req, res, next) => {
-  // DO YOUR MAGIC
+const db = require('../../data/db-config')
+
+const checkCarId = async (req, res, next) => {
+  
 }
 
 const checkCarPayload = (req, res, next) => {
