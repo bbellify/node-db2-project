@@ -5,12 +5,18 @@ const getAll = async () => {
   return rows
 }
 
-const getById = () => {
-  // DO YOUR MAGIC
+const getById = async (id) => {
+  const [rec] = await db('cars')
+    .where('id', id)
+    return rec
 }
 
-const create = () => {
-  // DO YOUR MAGIC
+const create = async (newInfo) => {
+  // insert into cars (columns) values (values)
+  const [newId] = await db('cars').insert(newInfo)
+  
+  const newCar = await getById(newId)
+  return newCar
 }
 
 module.exports = {
